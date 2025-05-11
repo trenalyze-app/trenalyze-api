@@ -14,6 +14,8 @@ from .database import db
 from .celery_app import celery_init_app
 from .mail import mail
 import datetime
+from .models import AccountActiveModel
+from celery.schedules import crontab
 
 
 def create_app():
@@ -41,6 +43,7 @@ def create_app():
     app.config["MONGODB_SETTINGS"] = {
         "db": database_mongodb,
         "host": database_mongodb_url,
+        "connect": False,
     }
     app.config["MAIL_SERVER"] = smtp_host
     app.config["MAIL_PORT"] = smtp_port
@@ -54,6 +57,22 @@ def create_app():
     celery_app = celery_init_app(app)
     db.init_app(app)
     mail.init_app(app)
+
+    @celery_app.task(name="delete_token_task")
+    def delete_token_task():
+        expired_at = int(datetime.datetime.now(datetime.timezone.utc).timestamp())
+        if data_account_active := AccountActiveModel.objects.all():
+            for account_active_data in data_account_active:
+                if account_active_data.expired_at <= expired_at:
+                    account_active_data.delete()
+        return f"delete token at {int(datetime.datetime.now(datetime.timezone.utc).timestamp())}"
+
+    celery_app.conf.beat_schedule = {
+        "run-every-5-minutes": {
+            "task": "delete_token_task",
+            "schedule": crontab(minute="*/5"),
+        },
+    }
 
     with app.app_context():
         from .api.login import login_router
