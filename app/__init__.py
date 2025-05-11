@@ -1,7 +1,19 @@
-from flask import Flask
+from flask import Flask, request
 import os
-from .config import database_mongodb, database_mongodb_url
+from .config import (
+    database_mongodb,
+    database_mongodb_url,
+    smtp_host,
+    smtp_port,
+    smtp_email,
+    smtp_password,
+    celery_broker_url,
+    celery_result_backend,
+)
 from .database import db
+from .celery_app import celery_init_app
+from .mail import mail
+import datetime
 
 
 def create_app():
@@ -19,18 +31,40 @@ def create_app():
         PUBLIC_KEY = f.read()
 
     app.config.from_prefixed_env()
+    app.config.from_mapping(
+        CELERY=dict(
+            broker_url=celery_broker_url,
+            result_backend=celery_result_backend,
+            task_ignore_result=True,
+        ),
+    )
     app.config["MONGODB_SETTINGS"] = {
         "db": database_mongodb,
         "host": database_mongodb_url,
     }
+    app.config["MAIL_SERVER"] = smtp_host
+    app.config["MAIL_PORT"] = smtp_port
+    app.config["MAIL_USE_TLS"] = True
+    app.config["MAIL_USE_SSL"] = False
+    app.config["MAIL_USERNAME"] = smtp_email
+    app.config["MAIL_PASSWORD"] = smtp_password
+    app.config["MAIL_DEFAULT_SENDER"] = smtp_email
+
+    global celery_app
+    celery_app = celery_init_app(app)
     db.init_app(app)
+    mail.init_app(app)
 
     with app.app_context():
         from .api.login import login_router
         from .api.register import register_router
+        from .api.account_active import account_active_router
+        from .api.business import business_router
 
         app.register_blueprint(login_router)
         app.register_blueprint(register_router)
+        app.register_blueprint(account_active_router)
+        app.register_blueprint(business_router)
 
     @app.after_request
     async def add_cors_headers(response):
@@ -40,5 +74,9 @@ def create_app():
         )
         response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
         return response
+
+    @app.before_request
+    def before_request():
+        request.timestamp = datetime.datetime.now(datetime.timezone.utc)
 
     return app

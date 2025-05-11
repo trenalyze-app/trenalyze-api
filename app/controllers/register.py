@@ -1,5 +1,5 @@
 from ..databases import UserDatabase
-from flask import jsonify
+from flask import jsonify, request
 from email_validator import validate_email
 
 
@@ -41,7 +41,7 @@ class RegisterController:
             valid = validate_email(email)
             email = valid.email
         except:
-            errors.setdefault("email", []).append("EMAIL_INVALID")
+            errors.setdefault("email", []).append("INVALID_EMAIL")
         if password != confirm_password:
             errors.setdefault("confirm_password", []).append("PASSWORD_MISMATCH")
         if errors:
@@ -54,12 +54,13 @@ class RegisterController:
                 jsonify(
                     {
                         "errors": {"user": ["USER_ALREADY_EXISTS"]},
-                        "message": "user already exists",
+                        "message": "the user already exists",
                     }
                 ),
                 409,
             )
-        await UserDatabase.insert(
-            first_name, last_name, username, email, result_password
+        created_at = int(request.timestamp.timestamp())
+        result = await UserDatabase.insert(
+            first_name, last_name, username, email, result_password, created_at
         )
         return jsonify({"message": "user registered successfully"})
