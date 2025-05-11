@@ -8,7 +8,7 @@ from ..task import send_email_task
 
 class AccountActiveController:
     @staticmethod
-    async def user_get_verification_email(token):
+    async def user_get_verification_email(token, timestamp):
         errors = {}
         if not isinstance(token, str):
             errors.setdefault("token", []).append("FIELD_TEXT")
@@ -38,12 +38,11 @@ class AccountActiveController:
                 ),
                 404,
             )
-        created_at = int(request.timestamp.timestamp())
         result = await AccountActiveDatabase.update(
             "active_user_by_token_email",
             user_id=token_data["user_id"],
             token=token,
-            created_at=created_at,
+            created_at=int(timestamp.timestamp()),
         )
         return (
             jsonify(
@@ -78,7 +77,7 @@ class AccountActiveController:
             )
 
     @staticmethod
-    async def user_verification(email):
+    async def user_verification(email, timestamp):
         errors = {}
         if not isinstance(email, str):
             errors.setdefault("email", []).append("FIELD_TEXT")
@@ -111,17 +110,16 @@ class AccountActiveController:
                 ),
                 409,
             )
-        created_at = request.timestamp
-        expired_at = created_at + datetime.timedelta(minutes=5)
+        expired_at = timestamp + datetime.timedelta(minutes=5)
         token_email = await TokenEmailAccountActive.insert(
-            f"{user_data.id}", int(created_at.timestamp())
+            f"{user_data.id}", int(timestamp.timestamp())
         )
         token_web = await TokenWebAccountActive.insert(
-            f"{user_data.id}", int(created_at.timestamp())
+            f"{user_data.id}", int(timestamp.timestamp())
         )
         await AccountActiveDatabase.insert(
             user_data.email,
-            int(created_at.timestamp()),
+            int(timestamp.timestamp()),
             int(expired_at.timestamp()),
             token_email,
             token_web,
@@ -158,7 +156,7 @@ class AccountActiveController:
                     "message": "successfully sent email verification",
                     "data": {
                         "token": token_web,
-                        "created_at": created_at.timestamp(),
+                        "created_at": int(timestamp.timestamp()),
                     },
                 }
             ),
