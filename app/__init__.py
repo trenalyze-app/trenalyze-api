@@ -79,11 +79,13 @@ def create_app():
         from .api.register import register_router
         from .api.account_active import account_active_router
         from .api.business import business_router
+        from .api.profile import profile_router
 
         app.register_blueprint(login_router)
         app.register_blueprint(register_router)
         app.register_blueprint(account_active_router)
         app.register_blueprint(business_router)
+        app.register_blueprint(profile_router)
 
     @app.after_request
     async def add_cors_headers(response):

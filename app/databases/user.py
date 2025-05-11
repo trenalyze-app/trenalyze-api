@@ -26,7 +26,15 @@ class UserDatabase(Database):
 
     @staticmethod
     async def update(category, **kwargs):
-        pass
+        user_id = kwargs.get("user_id")
+        new_first_name = kwargs.get("new_first_name")
+        created_at = kwargs.get("created_at")
+        if category == "first_name_by_user_id":
+            if user_data := UserModel.objects(id=user_id).first():
+                user_data.first_name = new_first_name
+                user_data.updated_at = created_at
+                user_data.save()
+                return user_data
 
     @staticmethod
     async def get(category, **kwargs):
