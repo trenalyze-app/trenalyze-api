@@ -6,7 +6,7 @@ from ..task import send_email_task
 
 class BusinessController:
     @staticmethod
-    async def compare_trend_maps(topic):
+    async def compare_trend_maps(topic, user_id):
         errors = {}
         if not isinstance(topic, list):
             errors.setdefault("topic", []).append("FIELD_LIST")
@@ -15,7 +15,7 @@ class BusinessController:
         if errors:
             return jsonify({"errors": errors, "message": "invalid data"}), 400
         user = request.user
-        if not (data_user := await UserDatabase.get("by_user_id", user_id=user["sub"])):
+        if not (data_user := await UserDatabase.get("by_user_id", user_id=user_id)):
             return jsonify({"message": "invalid or expired token"}), 401
         topic = [i for i in topic if i]
         topic = ", ".join(topic)
@@ -33,7 +33,7 @@ class BusinessController:
         )
 
     @staticmethod
-    async def compare_trend_chart(topic):
+    async def compare_trend_chart(topic, user_id):
         errors = {}
         if not isinstance(topic, list):
             errors.setdefault("topic", []).append("FIELD_LIST")
@@ -41,8 +41,7 @@ class BusinessController:
             errors.setdefault("topic", []).append("FIELD_REQUIRED")
         if errors:
             return jsonify({"errors": errors, "message": "invalid data"}), 400
-        user = request.user
-        if not (data_user := await UserDatabase.get("by_user_id", user_id=user["sub"])):
+        if not (data_user := await UserDatabase.get("by_user_id", user_id=user_id)):
             return jsonify({"message": "invalid or expired token"}), 401
         topic = ", ".join(topic)
         result = await GoogleTrends.get_trends(topic)

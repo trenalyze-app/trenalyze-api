@@ -9,13 +9,15 @@ business_router = Blueprint("business_router", __name__)
 @jwt_required()
 async def compare_trend_chart():
     data = request.json
+    user = request.user
     topic = data.get("topic", [])
-    return await BusinessController.compare_trend_chart(topic)
+    return await BusinessController.compare_trend_chart(topic, user["sub"])
 
 
 @business_router.get("/trenalyze/compare/maps")
 @jwt_required()
 async def compare_trend_maps():
     data = request.json
+    user = request.user
     topic = data.get("topic", [])
-    return await BusinessController.compare_trend_maps(topic)
+    return await BusinessController.compare_trend_maps(topic, user["sub"])
