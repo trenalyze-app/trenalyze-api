@@ -26,7 +26,7 @@ class AccountActiveController:
             )
         if not (
             account_active_data := await AccountActiveDatabase.get(
-                "by_token_email", token=token, user_id=token_data["user_id"]
+                "by_token_email_user_id", token=token, user_id=token_data["user_id"]
             )
         ):
             return (
@@ -49,7 +49,25 @@ class AccountActiveController:
                 {
                     "message": "user has been successfully activated",
                     "data": {
-                        "user_id": token_data["user_id"],
+                        "token_email": result.token_email,
+                        "token_web": result.token_web,
+                        "id": result.id,
+                        "created_at": result.created_at,
+                        "updated_at": result.updated_at,
+                        "expired_at": result.expired_at,
+                    },
+                    "user": {
+                        "id": result.user.id,
+                        "first_name": result.user.first_name,
+                        "last_name": result.user.last_name,
+                        "username": result.user.username,
+                        "email": result.user.email,
+                        "created_at": result.user.created_at,
+                        "updated_at": result.user.updated_at,
+                        "is_active": result.user.is_active,
+                        "country": result.user.country,
+                        "city": result.user.city,
+                        "postal_code": result.user.postal_code,
                     },
                 }
             ),
@@ -75,6 +93,48 @@ class AccountActiveController:
                 ),
                 404,
             )
+        if not (
+            account_active_data := await AccountActiveDatabase.get(
+                "by_token_web_user_id", token=token, user_id=token_data["user_id"]
+            )
+        ):
+            return (
+                jsonify(
+                    {
+                        "message": "token not found",
+                        "errors": {"token": ["INVALID_TOKEN"]},
+                    }
+                ),
+                404,
+            )
+        return (
+            jsonify(
+                {
+                    "message": "successfully obtained the information",
+                    "data": {
+                        "token_web": account_active_data.token_web,
+                        "id": account_active_data.id,
+                        "created_at": account_active_data.created_at,
+                        "updated_at": account_active_data.updated_at,
+                        "expired_at": account_active_data.expired_at,
+                    },
+                    "user": {
+                        "id": account_active_data.user.id,
+                        "first_name": account_active_data.user.first_name,
+                        "last_name": account_active_data.user.last_name,
+                        "username": account_active_data.user.username,
+                        "email": account_active_data.user.email,
+                        "created_at": account_active_data.user.created_at,
+                        "updated_at": account_active_data.user.updated_at,
+                        "is_active": account_active_data.user.is_active,
+                        "country": account_active_data.user.country,
+                        "city": account_active_data.user.city,
+                        "postal_code": account_active_data.user.postal_code,
+                    },
+                }
+            ),
+            200,
+        )
 
     @staticmethod
     async def user_verification(email, timestamp):
@@ -117,7 +177,7 @@ class AccountActiveController:
         token_web = await TokenWebAccountActive.insert(
             f"{user_data.id}", int(timestamp.timestamp())
         )
-        await AccountActiveDatabase.insert(
+        result = await AccountActiveDatabase.insert(
             user_data.email,
             int(timestamp.timestamp()),
             int(expired_at.timestamp()),
@@ -155,8 +215,25 @@ class AccountActiveController:
                 {
                     "message": "successfully sent email verification",
                     "data": {
-                        "token": token_web,
-                        "created_at": int(timestamp.timestamp()),
+                        "token_email": result.token_email,
+                        "token_web": result.token_web,
+                        "id": result.id,
+                        "created_at": result.created_at,
+                        "updated_at": result.updated_at,
+                        "expired_at": result.expired_at,
+                    },
+                    "user": {
+                        "id": result.user.id,
+                        "first_name": result.user.first_name,
+                        "last_name": result.user.last_name,
+                        "username": result.user.username,
+                        "email": result.user.email,
+                        "created_at": result.user.created_at,
+                        "updated_at": result.user.updated_at,
+                        "is_active": result.user.is_active,
+                        "country": result.user.country,
+                        "city": result.user.city,
+                        "postal_code": result.user.postal_code,
                     },
                 }
             ),

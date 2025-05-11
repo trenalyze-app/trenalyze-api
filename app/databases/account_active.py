@@ -52,9 +52,15 @@ class AccountActiveDatabase(Database):
     async def get(category, **kwargs):
         token = kwargs.get("token")
         user_id = kwargs.get("user_id")
-        if category == "by_token_email":
+        if category == "by_token_email_user_id":
             if user_data := UserModel.objects(id=user_id).first():
                 if account_active_data := AccountActiveModel.objects(
                     user=user_data, token_email=token
+                ).first():
+                    return account_active_data
+        if category == "by_token_web_user_id":
+            if user_data := UserModel.objects(id=user_id).first():
+                if account_active_data := AccountActiveModel.objects(
+                    user=user_data, token_web=token
                 ).first():
                     return account_active_data

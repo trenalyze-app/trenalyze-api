@@ -10,6 +10,7 @@ class UserModel(me.Document):
     created_at = me.IntField(required=True)
     updated_at = me.IntField(required=True)
     is_active = me.BooleanField(required=False, default=False)
+    bio = me.StringField(required=False)
     country = me.StringField(required=False)
     city = me.StringField(required=False)
     postal_code = me.StringField(required=False)
