@@ -1,9 +1,8 @@
 from flask import jsonify, request
 from ..databases import UserDatabase, AccountActiveDatabase
 from email_validator import validate_email
-from ..utils import TokenWebAccountActive, TokenEmailAccountActive
+from ..utils import TokenWebAccountActive, TokenEmailAccountActive, SendEmail
 import datetime
-from ..task import send_email_task
 
 
 class AccountActiveController:
@@ -184,38 +183,12 @@ class AccountActiveController:
             token_email,
             token_web,
         )
-        send_email_task.apply_async(
-            args=[
-                "Account Active",
-                [user_data.email],
-                f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset</title>
-</head>
-<body>
-    <p>Hello {user_data.username},</p>
-    <p>Someone has requested a link to verify your account, and you can do this through the link below.</p>
-    <p>
-        <a href="dsadsadsa/account-active?token={token_email}">
-            Click here to activate your account
-        </a>
-    </p>
-    <p>If you didn't request this, please ignore this email.</p>
-</body>
-</html>
-                """,
-                "account active",
-            ],
-        )
+        await SendEmail.send_email_verification(user_data, token_email)
         return (
             jsonify(
                 {
                     "message": "successfully sent email verification",
                     "data": {
-                        "token_email": result.token_email,
                         "token_web": result.token_web,
                         "id": result.id,
                         "created_at": result.created_at,
