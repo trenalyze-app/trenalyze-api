@@ -6,3 +6,4 @@ from .token import *
 from .google_trends import *
 from .auth_jwt import *
 from .middleware import *
+from .send_email import *

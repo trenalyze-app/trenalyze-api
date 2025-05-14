@@ -1,12 +1,13 @@
-from ..databases import UserDatabase
+from ..databases import UserDatabase, AccountActiveDatabase
 from flask import jsonify, request
-from ..utils import AuthJwt
+from ..utils import AuthJwt, TokenEmailAccountActive, TokenWebAccountActive, SendEmail
 from email_validator import validate_email
+import datetime
 
 
 class LoginController:
     @staticmethod
-    async def user_login(email, password):
+    async def user_login(email, password, timestamp):
         from ..bcrypt import bcrypt
 
         errors = {}
@@ -34,6 +35,46 @@ class LoginController:
                     }
                 ),
                 404,
+            )
+        if not user_data.is_active:
+            expired_at = timestamp + datetime.timedelta(minutes=5)
+            token_email = await TokenEmailAccountActive.insert(
+                f"{user_data.id}", int(timestamp.timestamp())
+            )
+            token_web = await TokenWebAccountActive.insert(
+                f"{user_data.id}", int(timestamp.timestamp())
+            )
+            await AccountActiveDatabase.insert(
+                user_data.email,
+                int(timestamp.timestamp()),
+                int(expired_at.timestamp()),
+                token_email,
+                token_web,
+            )
+            SendEmail.send_email_verification(user_data, token_email)
+            return (
+                jsonify(
+                    {
+                        "message": "failed login attempt",
+                        "errors": {"user": ["USER_INACTIVE"]},
+                        "user": {
+                            "token": token,
+                            "username": user_data.username,
+                            "email": user_data.email,
+                            "first_name": user_data.first_name,
+                            "last_name": user_data.last_name,
+                            "is_active": user_data.is_active,
+                            "country": user_data.country,
+                            "city": user_data.city,
+                            "postal_code": user_data.postal_code,
+                            "created_at": user_data.created_at,
+                            "updated_at": user_data.updated_at,
+                            "id": f"{user_data.id}",
+                        },
+                        "token": None,
+                    }
+                ),
+                403,
             )
         if not bcrypt.check_password_hash(user_data.password, password):
             return (
