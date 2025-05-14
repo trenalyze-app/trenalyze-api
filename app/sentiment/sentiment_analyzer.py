@@ -3,7 +3,7 @@ from typing import Dict, List
 from collections import defaultdict, Counter
 import google.generativeai as genai
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDXTfL66pIcMaX0MHui5wIKE4lokXVeG2Y")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "INPUT YOU GEMINI API")
 genai.configure(api_key=GEMINI_API_KEY)
 MODEL = genai.GenerativeModel("gemini-1.5-flash")
 

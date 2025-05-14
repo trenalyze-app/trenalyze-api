@@ -3,7 +3,7 @@ import re
 from typing import Dict, List, Any
 from apify_client import ApifyClient
 
-APIFY_API_KEY = os.environ.get("APIFY_API_KEY", "apify_api_3qeGEFLLY0mKbkdrKWFwc5k9hFWLKe4tac2e")
+APIFY_API_KEY = os.environ.get("APIFY_API_KEY", "INPUT YOUR APIFY API KEY")
 
 def scrape_places(food_item: str, country: str, max_places: int = 10, max_reviews: int = 5) -> List[Dict]:
     client = ApifyClient(APIFY_API_KEY)
