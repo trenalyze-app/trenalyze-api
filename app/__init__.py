@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 import os
 from .config import (
     database_mongodb,
@@ -80,18 +80,12 @@ def create_app():
         from .api.account_active import account_active_router
         from .api.business import business_router
         from .api.profile import profile_router
-        from .api.routes.sentiment_routes import sentiment_bp
 
         app.register_blueprint(login_router)
         app.register_blueprint(register_router)
         app.register_blueprint(account_active_router)
         app.register_blueprint(business_router)
         app.register_blueprint(profile_router)
-        app.register_blueprint(sentiment_bp, url_prefix='/api/sentiment')
-        
-        @app.route('/')
-        def index():
-            return jsonify({"message": "Trenalyze API is running"}), 200
 
     @app.after_request
     async def add_cors_headers(response):
