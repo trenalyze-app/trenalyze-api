@@ -51,7 +51,7 @@ class LoginController:
             jsonify(
                 {
                     "message": "login successful",
-                    "data": {
+                    "user": {
                         "token": token,
                         "username": user_data.username,
                         "email": user_data.email,
@@ -65,6 +65,7 @@ class LoginController:
                         "updated_at": user_data.updated_at,
                         "id": f"{user_data.id}",
                     },
+                    "token": {"web_token": None, "access_token": token},
                 }
             ),
             200,
