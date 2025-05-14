@@ -1,0 +1,588 @@
+{
+  "overview": {
+    "total_places": 10,
+    "total_reviews": 25,
+    "total_regions": 8,
+    "sentiment_distribution": {
+      "positive": 22,
+      "negative": 2,
+      "neutral": 1
+    }
+  },
+  "regions": {
+    "Depok": {
+      "total": 5,
+      "positive": 5,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Yogyakarta": {
+      "total": 3,
+      "positive": 2,
+      "negative": 1,
+      "neutral": 0,
+      "positive_percent": 66.7,
+      "negative_percent": 33.3,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Sleman": {
+      "total": 3,
+      "positive": 3,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Special Region of Yogyakarta 55281": {
+      "total": 2,
+      "positive": 2,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Central Java": {
+      "total": 1,
+      "positive": 0,
+      "negative": 0,
+      "neutral": 1,
+      "positive_percent": 0.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 100.0,
+      "dominant_sentiment": "netral"
+    },
+    "Bekasi": {
+      "total": 2,
+      "positive": 2,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Bantul": {
+      "total": 6,
+      "positive": 5,
+      "negative": 1,
+      "neutral": 0,
+      "positive_percent": 83.3,
+      "negative_percent": 16.7,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Tangerang": {
+      "total": 3,
+      "positive": 3,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    }
+  },
+  "top_regions": {
+    "positive": [
+      {
+        "region": "Depok",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "Sleman",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "Special Region of Yogyakarta 55281",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "Bekasi",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "Tangerang",
+        "positive_percent": 100.0
+      }
+    ],
+    "negative": [
+      {
+        "region": "Yogyakarta",
+        "negative_percent": 33.3
+      },
+      {
+        "region": "Bantul",
+        "negative_percent": 16.7
+      },
+      {
+        "region": "Depok",
+        "negative_percent": 0.0
+      },
+      {
+        "region": "Sleman",
+        "negative_percent": 0.0
+      },
+      {
+        "region": "Special Region of Yogyakarta 55281",
+        "negative_percent": 0.0
+      }
+    ]
+  },
+  "top_phrases": [
+    {
+      "text": "enak",
+      "place_name": "Pecel Lele Oma, Springwood",
+      "percentage": 88.0
+    },
+    {
+      "text": "enakkkk",
+      "place_name": "Pecel Lele Oma, Springwood",
+      "percentage": 88.0
+    },
+    {
+      "text": "Pecelnya enak",
+      "place_name": "Pecel Lele Mas Arie (Bawah Jembatan Janti)",
+      "percentage": 88.0
+    },
+    {
+      "text": "Enak kremesnya dan ramah",
+      "place_name": "Pecel Lele Nur Laily Lamongan",
+      "percentage": 88.0
+    },
+    {
+      "text": "Sangat baik dan memuaskan",
+      "place_name": "Pecel Lele Lestari Jaya Lamongan",
+      "percentage": 88.0
+    }
+  ],
+  "geo_data": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Depok",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.8,
+          "reviews_count": 10,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 5,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            106.7806045,
+            -6.4138501
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Yogyakarta",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.7,
+          "reviews_count": 119,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 2,
+          "negative_count": 1,
+          "neutral_count": 0,
+          "positive_percent": 66.7,
+          "negative_percent": 33.3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3868856,
+            -7.8019048
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Sleman",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.5,
+          "reviews_count": 447,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 3,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.4103503,
+            -7.7859958
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Special Region of Yogyakarta 55281",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.8,
+          "reviews_count": 326,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 2,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3963534,
+            -7.7655466
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "East Java",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 5.0,
+          "reviews_count": 2,
+          "sentiment": "netral",
+          "color": "gray",
+          "positive_count": 0,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 0,
+          "negative_percent": 0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.1220274,
+            -6.9938807
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Central Java",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.6,
+          "reviews_count": 8,
+          "sentiment": "netral",
+          "color": "gray",
+          "positive_count": 0,
+          "negative_count": 0,
+          "neutral_count": 1,
+          "positive_percent": 0.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.7328033,
+            -7.357707
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bekasi",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.9,
+          "reviews_count": 46,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 2,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            107.1309052,
+            -6.3201605
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bantul",
+          "country": "Indonesia",
+          "places_count": 2,
+          "avg_rating": 5.0,
+          "reviews_count": 98,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 5,
+          "negative_count": 1,
+          "neutral_count": 0,
+          "positive_percent": 83.3,
+          "negative_percent": 16.7
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3246534,
+            -7.8110402
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Tangerang",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.9,
+          "reviews_count": 2307,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 3,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            106.6384208,
+            -6.2251432
+          ]
+        }
+      }
+    ]
+  },
+  "geo_data_detail": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pecel Lele Nur Laily Lamongan",
+          "region": "Depok",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.8,
+          "reviewsCount": 10
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            106.7806045,
+            -6.4138501
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "PECEL LELE PUTRA SUMATRA",
+          "region": "Yogyakarta",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.7,
+          "reviewsCount": 119
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3868856,
+            -7.8019048
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pecel Lele Mas Arie (Bawah Jembatan Janti)",
+          "region": "Sleman",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.5,
+          "reviewsCount": 447
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.4103503,
+            -7.7859958
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "WACELE MAS NUR (Warung Pecel Lele)",
+          "region": "Special Region of Yogyakarta 55281",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.8,
+          "reviewsCount": 326
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3963534,
+            -7.7655466
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Ayam Goreng Pecel Lele",
+          "region": "East Java",
+          "country": "Indonesia",
+          "sentiment": "netral",
+          "color": "gray",
+          "rating": 5,
+          "reviewsCount": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.1220274,
+            -6.9938807
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Warung Makan Pecel Lele",
+          "region": "Central Java",
+          "country": "Indonesia",
+          "sentiment": "netral",
+          "color": "gray",
+          "rating": 4.6,
+          "reviewsCount": 8
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.7328033,
+            -7.357707
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pecel Lele Lestari Jaya Lamongan",
+          "region": "Bekasi",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.9,
+          "reviewsCount": 46
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            107.1309052,
+            -6.3201605
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pecel Lele lamongan \"CAK ANDIK\"",
+          "region": "Bantul",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 5,
+          "reviewsCount": 11
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3246534,
+            -7.8110402
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pecel Lele Oma, Springwood",
+          "region": "Tangerang",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.9,
+          "reviewsCount": 2307
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            106.6384208,
+            -6.2251432
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Warung LAMONGAN Pecel Lele Cak Dicky",
+          "region": "Bantul",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.9,
+          "reviewsCount": 87
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            110.3671349,
+            -7.8318833
+          ]
+        }
+      }
+    ]
+  },
+  "search_info": {
+    "food_item": "pecel lele",
+    "country": "indonesia",
+    "timestamp": "2025-05-15T00:58:08.668972"
+  }
+}

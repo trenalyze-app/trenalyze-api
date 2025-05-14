@@ -1,0 +1,530 @@
+{
+  "overview": {
+    "total_places": 10,
+    "total_reviews": 22,
+    "total_regions": 7,
+    "sentiment_distribution": {
+      "positive": 15,
+      "negative": 5,
+      "neutral": 2
+    }
+  },
+  "regions": {
+    "Pacitan": {
+      "total": 3,
+      "positive": 2,
+      "negative": 0,
+      "neutral": 1,
+      "positive_percent": 66.7,
+      "negative_percent": 0.0,
+      "neutral_percent": 33.3,
+      "dominant_sentiment": "positif"
+    },
+    "Blitar": {
+      "total": 4,
+      "positive": 4,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "Tulungagung": {
+      "total": 5,
+      "positive": 2,
+      "negative": 2,
+      "neutral": 1,
+      "positive_percent": 40.0,
+      "negative_percent": 40.0,
+      "neutral_percent": 20.0,
+      "dominant_sentiment": "positif"
+    },
+    "East Java 66218": {
+      "total": 5,
+      "positive": 5,
+      "negative": 0,
+      "neutral": 0,
+      "positive_percent": 100.0,
+      "negative_percent": 0.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "East Java 66212": {
+      "total": 2,
+      "positive": 1,
+      "negative": 1,
+      "neutral": 0,
+      "positive_percent": 50.0,
+      "negative_percent": 50.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "negatif"
+    },
+    "East Java 66311": {
+      "total": 2,
+      "positive": 1,
+      "negative": 1,
+      "neutral": 0,
+      "positive_percent": 50.0,
+      "negative_percent": 50.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "positif"
+    },
+    "East Java": {
+      "total": 1,
+      "positive": 0,
+      "negative": 1,
+      "neutral": 0,
+      "positive_percent": 0.0,
+      "negative_percent": 100.0,
+      "neutral_percent": 0.0,
+      "dominant_sentiment": "negatif"
+    }
+  },
+  "top_regions": {
+    "positive": [
+      {
+        "region": "Blitar",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "East Java 66218",
+        "positive_percent": 100.0
+      },
+      {
+        "region": "Pacitan",
+        "positive_percent": 66.7
+      },
+      {
+        "region": "East Java 66212",
+        "positive_percent": 50.0
+      },
+      {
+        "region": "East Java 66311",
+        "positive_percent": 50.0
+      }
+    ],
+    "negative": [
+      {
+        "region": "East Java",
+        "negative_percent": 100.0
+      },
+      {
+        "region": "East Java 66212",
+        "negative_percent": 50.0
+      },
+      {
+        "region": "East Java 66311",
+        "negative_percent": 50.0
+      },
+      {
+        "region": "Tulungagung",
+        "negative_percent": 40.0
+      },
+      {
+        "region": "Pacitan",
+        "negative_percent": 0.0
+      }
+    ]
+  },
+  "top_phrases": [
+    {
+      "text": "Mantul",
+      "place_name": "Es Teh Nusantara Zea",
+      "percentage": 68.2
+    },
+    {
+      "text": "Mantap",
+      "place_name": "Es Teh Nusantara Zea",
+      "percentage": 68.2
+    },
+    {
+      "text": "Mantapp",
+      "place_name": "Es Teh Nusantara Zea",
+      "percentage": 68.2
+    },
+    {
+      "text": "Mantaaapppp",
+      "place_name": "Es Teh Poci Pandawa",
+      "percentage": 68.2
+    },
+    {
+      "text": "Worth to try",
+      "place_name": "Es Teh Solo",
+      "percentage": 68.2
+    }
+  ],
+  "geo_data": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Tulungagung",
+          "country": "Indonesia",
+          "places_count": 4,
+          "avg_rating": 3.5,
+          "reviews_count": 243,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 2,
+          "negative_count": 2,
+          "neutral_count": 1,
+          "positive_percent": 40.0,
+          "negative_percent": 40.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9116909,
+            -8.0594286
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pacitan",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 5.0,
+          "reviews_count": 4,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 2,
+          "negative_count": 0,
+          "neutral_count": 1,
+          "positive_percent": 66.7,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.1204034,
+            -8.1746436
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Blitar",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 5.0,
+          "reviews_count": 4,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 4,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.1237976,
+            -8.0548561
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "East Java 66218",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.9,
+          "reviews_count": 10,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 5,
+          "negative_count": 0,
+          "neutral_count": 0,
+          "positive_percent": 100.0,
+          "negative_percent": 0.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9071786,
+            -8.0685384
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "East Java 66212",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 5.0,
+          "reviews_count": 6,
+          "sentiment": "negatif",
+          "color": "red",
+          "positive_count": 1,
+          "negative_count": 1,
+          "neutral_count": 0,
+          "positive_percent": 50.0,
+          "negative_percent": 50.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9032712,
+            -8.0645844
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "East Java 66311",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.5,
+          "reviews_count": 18,
+          "sentiment": "positif",
+          "color": "blue",
+          "positive_count": 1,
+          "negative_count": 1,
+          "neutral_count": 0,
+          "positive_percent": 50.0,
+          "negative_percent": 50.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.7089146,
+            -8.050148
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "East Java",
+          "country": "Indonesia",
+          "places_count": 1,
+          "avg_rating": 4.6,
+          "reviews_count": 100,
+          "sentiment": "negatif",
+          "color": "red",
+          "positive_count": 0,
+          "negative_count": 1,
+          "neutral_count": 0,
+          "positive_percent": 0.0,
+          "negative_percent": 100.0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.2152456,
+            -8.1292741
+          ]
+        }
+      }
+    ]
+  },
+  "geo_data_detail": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Eistee Esteh",
+          "region": "Tulungagung",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": null,
+          "reviewsCount": 0
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9116909,
+            -8.0594286
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Nusantara",
+          "region": "Pacitan",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 5,
+          "reviewsCount": 4
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.1204034,
+            -8.1746436
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Nusantara Zea",
+          "region": "Blitar",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 5,
+          "reviewsCount": 4
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.1237976,
+            -8.0548561
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh dalam kota",
+          "region": "Tulungagung",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.5,
+          "reviewsCount": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.0095172,
+            -8.1025122
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Poci Pandawa",
+          "region": "East Java 66218",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.9,
+          "reviewsCount": 10
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9071786,
+            -8.0685384
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Nusantara Bandung Tulungagung",
+          "region": "Tulungagung",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 5,
+          "reviewsCount": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.781618,
+            -8.1710136
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Solo",
+          "region": "East Java 66212",
+          "country": "Indonesia",
+          "sentiment": "negatif",
+          "color": "red",
+          "rating": 5,
+          "reviewsCount": 6
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9032712,
+            -8.0645844
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Indonesia Kebun 855 Trenggalek",
+          "region": "East Java 66311",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.5,
+          "reviewsCount": 18
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.7089146,
+            -8.050148
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "es teh indonesia",
+          "region": "East Java",
+          "country": "Indonesia",
+          "sentiment": "negatif",
+          "color": "red",
+          "rating": 4.6,
+          "reviewsCount": 100
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.2152456,
+            -8.1292741
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Es Teh Indonesia",
+          "region": "Tulungagung",
+          "country": "Indonesia",
+          "sentiment": "positif",
+          "color": "blue",
+          "rating": 4.5,
+          "reviewsCount": 240
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.9038654,
+            -8.0657775
+          ]
+        }
+      }
+    ]
+  },
+  "search_info": {
+    "food_item": "es teh",
+    "country": "indonesia",
+    "timestamp": "2025-05-15T01:22:34.187133"
+  }
+}
